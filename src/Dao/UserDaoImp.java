@@ -28,9 +28,9 @@ public class UserDaoImp implements UserDao {
 	@Override
 	public Boolean insertUser(User u) throws Exception {
 		// TODO Auto-generated method stub
-		String sql ="insert into HRUser values(null,?,?,?,?,?,default,?,?,?,?,default,0,true,?);";
+		String sql ="insert into hruser values(null,?,?,?,?,?,?,?,?,?,?,default,0,true,?);";
 		QueryRunner runner = new QueryRunner(DbSoureUtil.ds);
-		Integer re = runner.update(sql,new  Object [] {u.getuName(),u.getuPassword(),u.getuIcon(),u.getuPhoneNumber(),u.getuEmail()
+		Integer re = runner.update(sql,new  Object [] {u.getuName(),u.getuPassword(),u.getuIcon(),u.getuPhoneNumber(),u.getuEmail(),u.getuBirthday()
 				,u.getuAge(),u.getuGender(),u.getuDescription(),u.getuLocation(),u.getuType()});
 		return re>=0?true:false;
 	}

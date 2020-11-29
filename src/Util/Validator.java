@@ -15,4 +15,14 @@ public class Validator {
 		Pattern pattern = Pattern.compile("[0-9]+");
 		return pattern.matcher(str1).matches();
 	}
+	 public static boolean getGender(String choose) {
+			if(choose=="1")
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
 }
