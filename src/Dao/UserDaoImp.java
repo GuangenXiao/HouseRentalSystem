@@ -25,6 +25,7 @@ public class UserDaoImp implements UserDao {
 	}
 //insert into HRUser values(null,'xge',"123456","icon.png","13561915657","962613262@qq.com",default,20,true,null,null,default,0,true,"admin");
 //insert into HRUser values(null,?,?,?,?,?,default,?,?,?,?,default,0,true,?);
+	//insert into HRUser values(null,?,?,?,?,?,default,?,?,?,?,default,0,true,?);
 	@Override
 	public Boolean insertUser(User u) throws Exception {
 		// TODO Auto-generated method stub

@@ -82,7 +82,7 @@
                   </form>
                     <c:if test="<%=msg!=null %>"><%=msg %></c:if>
                   <br />
-                  <small>No Account?</small><a href="register.html" class="signup">&nbsp;Register</a>
+                  <small>No Account?</small><a href="${pageContext.request.contextPath}/register.jsp" class="signup">&nbsp;Register</a>
                 </div>
               </div>
             </div>
