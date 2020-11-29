@@ -31,7 +31,7 @@
   {
   	msg=request.getAttribute("msg").toString();
   }
-  %>
+ %>
 <body>
 <div class="jumbotron" style ="margin-left:10%;width:80%;">
 <c:if test="<%=msg!=null %>"><%=msg %></c:if>
