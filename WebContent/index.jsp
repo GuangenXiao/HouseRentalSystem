@@ -24,8 +24,21 @@ User u =(User)httpSession.getAttribute("user");
   <hr class="my-4">
   <p>If you want to know more about larks, please click the button below!</p>
   <p class="lead">
+<<<<<<< HEAD
+    <c:choose>
+    <c:when test="<%=u==null %>">
+    <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath }/index.jsp" role="button">Learn more</a>
+  	</c:when>
+    <c:otherwise>
+  	    <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath }/house.jsp" role="button">Post house</a>
+  	</c:otherwise>
+  	   </c:choose>
+  	</p>
+
+=======
     <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath }/index.jsp" role="button">Learn more</a>
   </p>
+>>>>>>> branch 'master' of https://github.com/GuangenXiao/HouseRentalSystem.git
 </div>
 
 
