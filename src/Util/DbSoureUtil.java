@@ -11,7 +11,7 @@ public class DbSoureUtil {
 		bds.setDriverClassName("com.mysql.jdbc.Driver");
 		bds.setUrl("jdbc:mysql://localhost:3306/HRDB?userUnicode=true&characterEncoding=utf8&serverTimezone=UTC");
 		bds.setUsername("root");
-		bds.setPassword("105402@xge");
+		bds.setPassword("");
 		bds.setInitialSize(5);
 		bds.setMaxActive(10);
 		bds.setMaxIdle(10);

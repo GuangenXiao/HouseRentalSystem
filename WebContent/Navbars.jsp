@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="style.default.css" id="theme-stylesheet">
 <script src="${pageContext.request.contextPath}/d3.js"></script>
 
-</script>
 <title>Nav</title>
 </head>
 <body>
