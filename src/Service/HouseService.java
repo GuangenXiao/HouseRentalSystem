@@ -46,5 +46,19 @@ public class HouseService implements IHouseService {
 		 
 		return list;
 	}
+	@Override
+	public Boolean insertHouse(House h) {
+		// TODO Auto-generated method stub
+		
+		 HouseDao hd =  new HouseDaoImp();
+		 Boolean result=null;
+		 try {
+			result=hd.insertHouse(h);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
 
 }
