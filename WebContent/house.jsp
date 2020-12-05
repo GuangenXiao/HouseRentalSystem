@@ -34,7 +34,7 @@
 <body>
 <div class="jumbotron" style ="margin-left:10%;width:80%;">
 <c:if test="<%=msg!=null %>"><%=msg %></c:if>
-<form method="post"class="form-validate" id="registerFrom" action="${pageContext.request.contextPath}/PostServlet" enctype="multipart/form-data">
+<form method="post"class="form-validate" id="registerFrom" action="${pageContext.request.contextPath}/HouseServlet" enctype="multipart/form-data">
   <fieldset>
     <legend>Please fill in house information</legend>
     <div class="form-group row">
