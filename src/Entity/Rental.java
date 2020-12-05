@@ -14,6 +14,12 @@ public class Rental {
 	 private Date rEnd;
 	 private Date rDeal;
 
+	 
+	 
+	public Rental() {
+		super();
+	}
+
 	public Rental(Integer rId, Integer rHId, Integer rUId, Integer rPrice, Date rStart, Date rEnd, Date rDeal) {
 		super();
 		this.rId = rId;

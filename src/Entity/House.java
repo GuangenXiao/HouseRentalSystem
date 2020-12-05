@@ -18,6 +18,10 @@ public class House {
 	private String hDescription;
 	private Date hVerification;
 	
+	public House() {
+		super();
+	}
+	
 	public House(Integer hId, Integer hOwnerId, String hPicture, String hAddress, Integer hType, Integer hSize,
 			Date hDate, String hEnergy, String hEquipment, Integer hPark, String hDescription, Date hVerification) {
 		super();
@@ -33,6 +37,8 @@ public class House {
 		this.hPark = hPark;
 		this.hDescription = hDescription;
 		this.hVerification = hVerification;
+
+
 	}
 
 	public Integer gethId() {

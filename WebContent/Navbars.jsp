@@ -19,8 +19,8 @@ HttpSession httpSession = request.getSession();
 User u =(User)httpSession.getAttribute("user");
 %>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">Navbar</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+    <a style="margin-left: 20px;" class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -39,7 +39,7 @@ User u =(User)httpSession.getAttribute("user");
           <a class="nav-link" href="${pageContext.request.contextPath}/view.jsp">Office</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">About Us</a>
+          <a class="nav-link" href="${pageContext.request.contextPath}/searchlist.jsp">Search</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="${pageContext.request.contextPath}/login.jsp">Login</a>
@@ -51,11 +51,12 @@ User u =(User)httpSession.getAttribute("user");
        <c:if test="<%=u!=null %>">        
          <p   style="margin-right:50px;color:black;font-size:25px;">Welcome,<%=u.getuName() %></p>
         </c:if>
-      <form class="form-inline my-2 my-lg-0">
+      <form style="margin-right: 20px;" class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Search">
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-      </form>
+      </form> 
     </div>
   </nav>
+  <div style="width: 100%;height: 80px;" ></div>
 </body>
 </html>

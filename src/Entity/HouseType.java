@@ -14,6 +14,7 @@ public class HouseType {
 	
 	
 	
+	
 	public HouseType(Integer tId, String tContext, String tDescription) {
 		super();
 		this.tId = tId;
