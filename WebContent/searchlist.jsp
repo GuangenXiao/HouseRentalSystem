@@ -14,7 +14,8 @@
 <jsp:include page="/Navbars.jsp"></jsp:include>
 <%
 IHouseService ibs = new HouseService();
- int i=0;
+ArrayList<HouseType> typelist =ibs.findHTypes(); 
+int i=0;
 %>
 <form action="${pageContext.request.contextPath }/SearchHouseServlet" method="post">
 <div  style="width: 80%;margin-left: auto;margin-right: auto;">
@@ -30,6 +31,14 @@ IHouseService ibs = new HouseService();
       <td>
       <select class="form-control" id="exampleSelect1" name="HouseTypeSelect">
       <option >0---general</option>
+      <c:forEach var="HouseType" items="<%=typelist%>" >
+      <% 
+      String tName=typelist.get(i).gettContext();
+      i++;
+      tName=i+"---"+tName;
+      %>
+      <option ><%=tName %></option>
+      </c:forEach>
       </select>
       </td>
       <td>
