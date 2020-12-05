@@ -34,9 +34,9 @@
  %>
 <body>
 <div class="jumbotron" style ="margin-left:10%;width:80%;">
-<c:if test="<%=msg!=null %>"><%=msg %></c:if>
 <form method="post"class="form-validate" id="registerFrom" action="${pageContext.request.contextPath}/RegisterServlet" enctype="multipart/form-data">
   <fieldset>
+  <font color="red" size="4"><c:if test="<%=msg!=null %>"><%=msg %></c:if></font>
     <legend>Please fill in your basic information</legend>
     <div class="form-group row">
       <label for="staticHead" class="col-sm-2 col-form-label">Head-portrait</label>

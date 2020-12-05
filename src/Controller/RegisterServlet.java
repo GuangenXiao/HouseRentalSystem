@@ -57,7 +57,7 @@ public class RegisterServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=utf-8");
-		request.getRequestDispatcher("/login.jsp").forward(request, response);
+		request.getRequestDispatcher("/register.jsp").forward(request, response);
 	}
 
 	/**
@@ -113,7 +113,7 @@ public class RegisterServlet extends HttpServlet {
 				}else {
 					String filename=item.getName();
 					System.out.println(filename);
-					if(filename!=null){
+					if(filename==null){
 						String defulat = "index.jpg";
 						user.setuIcon(defulat);
 					}else {
@@ -125,10 +125,11 @@ public class RegisterServlet extends HttpServlet {
 					String savefilename=prefix+suffix;
 					savefilename=savefilename.replace("-", "");
 					//System.out.println("要保存的文件名为"+savefilename);
-					String path=("C:\\Users\\dongtianhang\\Desktop\\e-workspace\\HR\\WebContent\\image");
+					String webPath="/image/";
+					String filepath=getServletContext().getRealPath(webPath);
 					user.setuIcon(savefilename);
 					InputStream is=item.getInputStream();
-					OutputStream os=new FileOutputStream(new File(path+File.separator+savefilename));
+					OutputStream os=new FileOutputStream(new File(filepath+File.separator+savefilename));
 					byte[] b=new byte[1024];
 					int len;
 					while((len=is.read(b))!=-1) {
@@ -142,31 +143,38 @@ public class RegisterServlet extends HttpServlet {
 			Integer age =0;
 			 try {
 		            age = Util.Timeconverter.getAge(user.getuBirthday()); 
+		            if(age<18) {
+		            	msg.append("your age is under 18!");
+		            	request.setAttribute("msg", msg.toString());
+						doGet(request, response);
+						return;
+		            }
 		            user.setuAge(age);
+		            
 		        } catch (Exception e) {
 		            e.printStackTrace();
 		        }
 			if(user.getuName()==null||user.getuPhoneNumber()==null||user.getuBirthday()==null||user.getuEmail()==null||user.getuPassword()==null||user.getuDescription()==null||user.getuLocation()==null||user.getuAge()==null) {
-				msg.append("The required information is incomplete");
+				msg.append("The required information is incomplete!");
 				request.setAttribute("msg", msg.toString());
 				doGet(request, response);
 				return;
 			}
 			if(user.getuName().length()<8||user.getuName().length()>16) {
-				msg.append("User name with illegal length");
+				msg.append("User name with illegal length!");
 				request.setAttribute("msg", msg.toString());
 				doGet(request, response);
 				return;
 			}	
 			if(!Util.Validator.isNumber(user.getuPhoneNumber())) {
-				msg.append("phoneNumber must be a number");
+				msg.append("phoneNumber must be a number!");
 				request.setAttribute("msg", msg.toString());
 				doGet(request, response);
 				return;
 			}
 			if(!user.getuEmail().matches("\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*"))
 			{
-				msg.append("Illegal email format");
+				msg.append("Illegal email format!");
 				request.setAttribute("msg", msg.toString());
 				doGet(request, response);
 				return;
