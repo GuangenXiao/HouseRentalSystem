@@ -102,9 +102,7 @@ public class HouseServlet extends HttpServlet {
 				}else {
 					String filename=item.getName();
 					System.out.println(filename);
-					System.out.print(1);
 					if(filename.length()==0){
-						System.out.print(2);
 						String defulat = "index.jpg";
 						house.sethPicture(defulat);
 					}else {
