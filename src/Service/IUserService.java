@@ -11,4 +11,5 @@ public interface IUserService {
 	 public  abstract ArrayList<User> findUsers(String info,String type);
 	 public abstract Integer updateUser(User u);
 	 public abstract Boolean insertUser(User u);
+	 
 }

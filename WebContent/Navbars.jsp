@@ -47,6 +47,13 @@ if(u!=null)
         </li>
         </c:if>
         </c:if>
+        <c:if test="<%=u!=null%>">
+        <c:if test="<%=owner%>">
+        <li class="nav-item">
+          <a class="nav-link" href="${pageContext.request.contextPath}/ApplyBox.jsp">New House</a>
+        </li>
+        </c:if>
+        </c:if>
         <c:if test="<%=u!=null %>">
         <li class="nav-item">
           <a class="nav-link" href="${pageContext.request.contextPath}/view.jsp">Office</a>

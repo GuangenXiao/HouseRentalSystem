@@ -14,8 +14,14 @@
 <% 
 HttpSession httpSession = request.getSession();
 User u =(User)httpSession.getAttribute("user");
+String msg =null;
+if(request.getAttribute("msg")!=null)
+{
+	msg=request.getAttribute("msg").toString();
+}
 %>
 <div class="jumbotron" style=" width: 80%; margin: auto;margin-top: 50px;">
+  <font color="red" size="4"><c:if test="<%=msg!=null %>"><%=msg %></c:if></font>
   <c:choose>
   <c:when test="<%=u==null %>"><h1 class="display-3">Welcome to lark Online</h1></c:when>
   <c:otherwise><h1 class="display-3">Welcome,<%=u.getuName() %></h1></c:otherwise>

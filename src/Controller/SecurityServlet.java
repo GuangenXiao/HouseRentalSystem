@@ -27,7 +27,7 @@ public class SecurityServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Insufficient permissions, Will jump to the home page");
+		response.getWriter().append("Illegal access<br>Insufficient permissions, Will jump to the home page");
 		response.getWriter().append("<br>It will automatically jump to the home page in three seconds");
 		
 		response.setContentType("text/html;charset=utf-8");
