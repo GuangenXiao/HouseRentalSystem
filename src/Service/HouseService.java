@@ -60,5 +60,21 @@ public class HouseService implements IHouseService {
 		}
 		return result;
 	}
+	@Override
+	public House serachhouseById(String ID) {
+		// TODO Auto-generated method stub
+		
+		 HouseDao hd =  new HouseDaoImp();
+		 House h = new House.Builder().hId(Integer.parseInt(ID)).Build();
+		 House result=null;
+		 try {
+			
+			result=hd.searchHouseByID(h);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
 
 }

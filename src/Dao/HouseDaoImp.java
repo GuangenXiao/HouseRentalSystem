@@ -28,7 +28,14 @@ public class HouseDaoImp implements HouseDao {
 		ArrayList<House> list = (ArrayList<House>)ruuner.query(sql, new BeanListHandler(House.class), new Object[]{}); 
 		return list;
 	}
-
+	public House searchHouseByID(House h) throws Exception {
+		// TODO Auto-generated method stub
+		//Connection conn = DbSoureUtil.ds.getConnection();
+		QueryRunner ruuner = new QueryRunner(DbSoureUtil.ds);
+		String sql = "SELECT *  FROM hrhouse where hId=?";
+        ArrayList<House> list = (ArrayList<House>)ruuner.query(sql, new BeanListHandler(House.class), new Object[]{h.gethId()}); 
+		return list.size()>0 ?(House) list.get(0):null;
+	}
 	@Override
 	public ArrayList<HouseType> findHTypes() throws Exception {
 		// TODO Auto-generated method stub

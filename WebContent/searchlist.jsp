@@ -70,6 +70,7 @@ int l=0;
   <c:if test="<%=houselist!=null&&houselist.size()>0 %>">
   <c:forEach var="book" items="<%=houselist%>" >
         <% 
+      Integer hId=houselist.get(l).gethId();
       String hPicture=houselist.get(l).gethPicture();
       String hAddress =houselist.get(l).gethAddress();
       String hEquipment =""+houselist.get(l).gethEquipment();
@@ -77,7 +78,7 @@ int l=0;
       l++;
       %>
       <tr>
-      <th scope="row"><img src="http://localhost:8080/HRsys/image/<%=hPicture %>" alt="<%=hPicture %>"  width="80" height="50" ></th>
+      <th scope="row"><a href="${pageContext.request.contextPath}/houserent.jsp?houseId=<%=hId %>"><img src="image/<%=hPicture %>" alt="<%=hPicture %>"  width="80" height="50" ></a></th>
       <td><%=hAddress %></td>
       <td><%=hEquipment %></td>
       <td><%=hDes %></td>

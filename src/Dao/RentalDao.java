@@ -1,5 +1,7 @@
 package Dao;
 
-public interface RentalDao {
+import Entity.Rental;
 
+public interface RentalDao {
+	public abstract Boolean insertRental(Rental R) throws Exception;
 }
