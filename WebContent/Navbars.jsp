@@ -17,6 +17,13 @@
 <% 
 HttpSession httpSession = request.getSession();
 User u =(User)httpSession.getAttribute("user");
+boolean owner=false ,user=false ,admin=false;
+if(u!=null)
+{
+	if(u.getuType().equals("admin"))admin=true;
+	if(u.getuType().equals("owner"))owner=true;
+	if(u.getuType().equals("user"))user=true;
+}
 %>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light" >
@@ -32,24 +39,40 @@ User u =(User)httpSession.getAttribute("user");
             <span class="sr-only">(current)</span>
           </a>
         </li>
+        
+        <c:if test="<%=u!=null%>">
+        <c:if test="<%=owner%>">
         <li class="nav-item">
           <a class="nav-link" href="${pageContext.request.contextPath}/house.jsp">New House</a>
         </li>
+        </c:if>
+        </c:if>
+        <c:if test="<%=u!=null %>">
         <li class="nav-item">
           <a class="nav-link" href="${pageContext.request.contextPath}/view.jsp">Office</a>
         </li>
+        </c:if>
+        
         <li class="nav-item">
           <a class="nav-link" href="${pageContext.request.contextPath}/searchlist.jsp">House</a>
         </li>
-       <li class="nav-item">
+        <c:if test="<%=u!=null%>">
+        <c:if test="<%=admin%>">
+        <li class="nav-item">
           <a class="nav-link" href="${pageContext.request.contextPath}/searchUsers.jsp">Users</a>
         </li>
+        </c:if>
+        </c:if>
+        <c:if test="<%=u==null %>">
         <li class="nav-item">
           <a class="nav-link" href="${pageContext.request.contextPath}/login.jsp">Login</a>
         </li>
+        </c:if>
+        <c:if test="<%=u!=null %>">
         <li class="nav-item">
           <a class="nav-link" href="${pageContext.request.contextPath}/LogoutServlet">Logout</a>
         </li>
+        </c:if>
       </ul>
        <c:if test="<%=u!=null %>">        
          <p   style="margin-right:50px;color:black;font-size:25px;">Welcome,<%=u.getuName() %></p>
