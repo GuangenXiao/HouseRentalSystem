@@ -77,7 +77,7 @@ int l=0;
       l++;
       %>
       <tr>
-      <th scope="row"><img src="http://192.168.1.121:8080/HRsys/image/<%=hPicture %>"></th>
+      <th scope="row"><img src="http://localhost:8080/HRsys/image/<%=hPicture %>" alt="<%=hPicture %>"  width="80" height="50" ></th>
       <td><%=hAddress %></td>
       <td><%=hEquipment %></td>
       <td><%=hDes %></td>
