@@ -25,13 +25,17 @@ public class UserService  implements IUserService {
 		 
 	 }
 	@Override
-	public ArrayList<User> findUsers(String info) {
+	public ArrayList<User> findUsers(String info,String type) {
 		// TODO Auto-generated method stub
-
+		  if(type.equals("General"))type=null;
+		  else if(type.equals("Administrator")) type="admin";
+		  else if(type.equals("Normal User")) type= "user";
+		  else if(type.equals("Houser Owner")) type= "owner";
+		  else type=null;
 		 UserDao ud =  new UserDaoImp();
 		 ArrayList<User> list=null;
 		 try {
-			list= ud.findUsers(info);
+			list= ud.findUsers(info,type);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

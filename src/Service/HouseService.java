@@ -7,6 +7,7 @@ import Dao.HouseDaoImp;
 import Dao.UserDao;
 import Dao.UserDaoImp;
 import Entity.House;
+import Entity.HouseType;
 import Entity.User;
 
 public class HouseService implements IHouseService {
@@ -29,6 +30,35 @@ public class HouseService implements IHouseService {
 		}
 		 
 		return list;
+	}
+
+	@Override
+	public ArrayList<HouseType> findHTypes() {
+		// TODO Auto-generated method stub
+		 HouseDao hd =  new HouseDaoImp();
+		 ArrayList<HouseType> list=null;
+		 try {
+			list= hd.findHTypes();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 
+		return list;
+	}
+	@Override
+	public Boolean insertHouse(House h) {
+		// TODO Auto-generated method stub
+		
+		 HouseDao hd =  new HouseDaoImp();
+		 Boolean result=null;
+		 try {
+			result=hd.insertHouse(h);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 }

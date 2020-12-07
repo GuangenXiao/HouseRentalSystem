@@ -113,7 +113,7 @@ public class RegisterServlet extends HttpServlet {
 				}else {
 					String filename=item.getName();
 					System.out.println(filename);
-					if(filename==null){
+					if(filename.length()==0){
 						String defulat = "index.jpg";
 						user.setuIcon(defulat);
 					}else {

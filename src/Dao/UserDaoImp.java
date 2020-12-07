@@ -98,12 +98,33 @@ public class UserDaoImp implements UserDao {
 		Integer re = runner.update(sql,new  Object [] {u.getuId()});
 		return re;
 	}
-
+	
 	@Override
-	public ArrayList<User> findUsers(String info) throws Exception {
+	public ArrayList<User> findUsers(String info,String type) throws Exception {
 		// TODO Auto-generated method stub
 		QueryRunner ruuner = new QueryRunner(DbSoureUtil.ds);
-		String sql = "SELECT *  FROM lms_user where uId like '%"+info+"%' or uName like '%"+info+"%' or uEmail like '%"+info+"%' or uPhoneNum like '%"+info+"%'; ";
+		String sql = "SELECT *  FROM hrdb.hruser";
+		if(info!=null&&info.length()>0) {
+		 sql+=" where (uId like '%"+info
+				+"%' or uName like '%"+info
+				+"%' or uEmail like '%"+info
+				+"%' or uPhoneNumber like '%"+info
+				+"%' or uLocation like '%"+info
+				+"%' or uDescription like '%"+info
+				+"%' )";
+		   if(type!=null) {
+			   sql+=" and uType= '"+type+"' ";
+		   }
+		   sql+=";";
+		}
+		else 
+		{
+			if(type!=null) {
+				   sql+=" where uType= '"+type+"' ";
+			   }
+			sql+=";";
+		}
+		System.out.println(sql);
         ArrayList<User> list = (ArrayList<User>)ruuner.query(sql, new BeanListHandler(User.class)); 
 		return list;
 	}
