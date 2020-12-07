@@ -32,10 +32,10 @@ public class LogoutServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.getSession().removeAttribute("user");
-		Cookie cookie =new  Cookie("autologin","msg");
+		/*Cookie cookie =new  Cookie("autologin","msg");
 		cookie.setPath(request.getContextPath());
 		cookie.setMaxAge(0);
-		response.addCookie(cookie);
+		response.addCookie(cookie);*/
 		//request.getRequestDispatcher("/Index.jsp").forward(request, response);
 		response.sendRedirect("/HRsys/index.jsp");
 	}

@@ -57,6 +57,7 @@ int l=0;
       <th scope="col">PhoneNumber</th>
       <th scope="col">Location</th>
       <th scope="col">Description</th>
+      <th scope="col">User Type</th>
     </tr>
   </thead>
 <tbody>
@@ -68,6 +69,7 @@ int l=0;
       String PhoneNumber =userlist.get(l).getuPhoneNumber();
       String Location = userlist.get(l).getuLocation();
       String Description = userlist.get(l).getuDescription();
+      String UserType = userlist.get(l).getuType();
       l++;
       %>
       <tr>
@@ -77,6 +79,7 @@ int l=0;
       <td><%=PhoneNumber %></td>
       <td><%=Location %></td>
       <td><%=Description %></td>
+      <td><%=UserType %></td>
     </tr>
   </c:forEach>
   </tbody>

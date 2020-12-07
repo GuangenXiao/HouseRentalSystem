@@ -44,12 +44,12 @@ public class SearchUserServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String info = request.getParameter("UserInfo");
 		String type = request.getParameter("UserTypeSelect");
-		if(info==null)
+		if(info==null&&type==null)
 		{
 			response.sendRedirect(request.getContextPath()+"/searchUsers.jsp");
 			return ;
 		}
-		if(info.length()<=0)
+		if(info.length()<=0&&type.length()<=0)
 		{
 			response.sendRedirect(request.getContextPath()+"/searchUsers.jsp");
 			return ;
@@ -57,7 +57,7 @@ public class SearchUserServlet extends HttpServlet {
 		ArrayList<User> userlist =null;
 		IUserService ius= new UserService();
 		System.out.print(info);
-	  userlist = ius.findUsers(info);
+	  userlist = ius.findUsers(info,type);
 	  System.out.println(info+userlist);
 	  request.setAttribute("userlist", userlist);
 	  request.getRequestDispatcher("/searchUsers.jsp").forward(request, response);
