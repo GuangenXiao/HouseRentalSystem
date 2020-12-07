@@ -53,4 +53,13 @@ public class HouseDaoImp implements HouseDao {
 				,h.gethEnergy(),h.gethEquipment(),h.gethPark(),h.gethDescription()});
 		return re>=0?true:false;
 	}
+
+	@Override
+	public Boolean deleteHouse(Integer houseId) throws Exception {
+		// TODO Auto-generated method stub
+		String sql ="delete from hrhouse where hId =?";
+		QueryRunner runner = new QueryRunner(DbSoureUtil.ds);
+		Integer re = runner.update(sql,new  Object [] {houseId});
+		return re>=0?true:false;
+	}
 }

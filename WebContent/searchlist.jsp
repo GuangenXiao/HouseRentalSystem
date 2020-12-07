@@ -13,6 +13,12 @@
 <body>
 <jsp:include page="/Navbars.jsp"></jsp:include>
 <%
+HttpSession httpSession = request.getSession();
+User u =(User)httpSession.getAttribute("user");
+boolean admin =false;
+if(u!=null){
+	if(u.getuType().equals("admin"))admin=true;
+}
 IHouseService ibs = new HouseService();
 ArrayList<HouseType> typelist =ibs.findHTypes(); 
 int i=0;
@@ -52,7 +58,6 @@ int i=0;
 
 <%  
 ArrayList<House> houselist =null; 
-HttpSession httpSession =request.getSession();
 houselist =(ArrayList<House>)httpSession.getAttribute("houselist");
 int l=0;
 %>
@@ -78,7 +83,12 @@ int l=0;
       l++;
       %>
       <tr>
+      <c:if test="<%=admin==true %>">
+      <th scope="row"><a href="${pageContext.request.contextPath}/mangerHouse.jsp?houseId=<%=hId %>"><img src="image/<%=hPicture %>" alt="<%=hPicture %>"  width="80" height="50" ></a></th>
+      </c:if>
+      <c:if test="<%=admin!=true %>">
       <th scope="row"><a href="${pageContext.request.contextPath}/houserent.jsp?houseId=<%=hId %>"><img src="image/<%=hPicture %>" alt="<%=hPicture %>"  width="80" height="50" ></a></th>
+      </c:if>
       <td><%=hAddress %></td>
       <td><%=hEquipment %></td>
       <td><%=hDes %></td>

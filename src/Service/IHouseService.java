@@ -11,4 +11,5 @@ public interface IHouseService {
 	public  abstract ArrayList<HouseType> findHTypes();
 	public  abstract Boolean insertHouse(House h);
 	public  abstract House serachhouseById(String ID);
+	public  abstract Boolean deleteHouse(Integer houseId);
 }

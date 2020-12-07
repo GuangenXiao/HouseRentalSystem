@@ -11,4 +11,5 @@ public interface HouseDao {
 	public  abstract ArrayList<HouseType> findHTypes() throws Exception;
 	public  abstract Boolean insertHouse(House h) throws Exception;
 	public  abstract House searchHouseByID(House h) throws Exception;
+	public  abstract Boolean deleteHouse(Integer houseId)throws Exception;
 }

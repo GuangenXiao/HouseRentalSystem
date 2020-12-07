@@ -44,7 +44,7 @@ if(u.getuGender()==false)
 %>
 <div class="golf" style="width:80%;margin-left: auto;margin-right:auto;">
 	<div class="photo">
-	     <img src="index.jpg" width="300px" height="350px">
+	     <img src="image/<%=u.getuIcon() %>" width="300px" height="350px">
 	</div>
 	
 	

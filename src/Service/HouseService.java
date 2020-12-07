@@ -77,4 +77,18 @@ public class HouseService implements IHouseService {
 		return result;
 	}
 
+	@Override
+	public Boolean deleteHouse(Integer houseId) {
+		// TODO Auto-generated method stub
+		 HouseDao hd =  new HouseDaoImp();
+		 Boolean result=null;
+		 try {
+			result=hd.deleteHouse(houseId);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 }

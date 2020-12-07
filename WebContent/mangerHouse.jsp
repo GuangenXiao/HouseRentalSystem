@@ -1,5 +1,10 @@
+<%@page import="Util.Timeconverter"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="Entity.*"%>
+    <%@page import="Service.*"%>
+    <%@page import="java.util.*"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix = "c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,84 +16,76 @@
 <title>House Page for manager</title>
 </head>
 <body> 
+<%
+           String houseID=request.getParameter("houseId");
+		   IHouseService target = new HouseService();
+		   House H= target.serachhouseById(houseID);
+		   String HouseAddress=H.gethAddress();
+		   Integer HouseTypecode=H.gethType();
+		   Integer HouseOwner=H.gethOwnerId();
+		   String HouseType=null;
+		   if(HouseTypecode==1){
+			   HouseType="apartment";
+		   }else if(HouseTypecode==2){
+			   HouseType="compound apartment";
+		   }else if(HouseTypecode==3){
+			   HouseType="low block";
+		   }else if(HouseTypecode==4){
+			   HouseType="mansion";
+		   }else if(HouseTypecode==5){
+			   HouseType="datcha";
+		   }
+		   Integer Housesize=H.gethSize();
+		   Date Housedate=H.gethDate();
+		   String Houselel=H.gethEnergy();
+		   Integer Housepark=H.gethPark();
+		   String HouseDec=H.gethDescription();
+		   String HouseImage=H.gethPicture();
+%>
+<jsp:include page="/Navbars.jsp"></jsp:include>
 <div style="width:100%;height:50px;"></div>
 
         
-<div class="golf" style="width:80%;margin-left: auto;margin-right:auto;">
-	<div class="photo">
-	     <img src="shu.jpg" width="300" height="350">
-	     
-	</div>
-	
-	
-	
-	<div class="intro">
-	   <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">House ID:</label>
-        <div class="col-sm-10">
-          <input type="text" readonly="" class="form-control-plaintext" id="staticEmail" value="123123123">
-        </div>
-        </div>
-        
-        
-       <div class="form-group">
-       <label for="exampleInputEmail1">House owner ID:</label>
-       <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="liying zhao" placeholder="Liying Zhao">
-       </div>
-       
-       
-       <div class="form-group">
-        <label for="exampleInputPassword1">House address:</label>
-         <input type="text" class="form-control" id="exampleInputPassword1" value = "123" placeholder="123">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-       </div>
-       
-       <div class="form-group">
-        <label for="exampleInputPassword1">House type:</label>
-         <input type="text" class="form-control" id="exampleInputPassword1" value = "911" placeholder="911">
-       </div>
-       
-       <div class="form-group">
-        <label for="exampleInputPassword1">House Size:</label>
-         <input type="text" class="form-control" id="exampleInputPassword1" value = "125478@qq.com" placeholder="125478@qq.com">
-       </div>
-       
-       <div class="form-group">
-        <label for="exampleInputPassword1">House equipment:</label>
-         <input type="text" class="form-control" id="exampleInputPassword1" value = "28" placeholder="28">
-       </div>
-       
-       <div class="form-group">
-        <label for="exampleInputPassword1">House park:</label>
-         <input type="text" class="form-control" id="exampleInputPassword1" value = "28" placeholder="28">
-       </div>
-       
-        <div class="form-group">
-        <label for="exampleInputPassword1">House building date:</label>
-         <input type="text" class="form-control" id="exampleInputPassword1" value = "28" placeholder="28">
-       </div>
-       
-       <div class="form-group">
-        <label for="exampleInputPassword1">House description:</label>
-         <textarea class="form-control" id="exampleTextarea" rows="3">I am super star!</textarea>
-       </div>
-       
-       <div class="form-group">
-        <label for="exampleInputPassword1">House energy:</label>
-         <input type="text" class="form-control" id="exampleInputPassword1" value = "28" placeholder="28">
-       </div>
-       
-       <div class="form-group">
-          <label for="exampleTextarea">00 : 00</label>
-          <input type="checkbox" onclick="chose(this)" name="c" value="YES"/>Yes
-          <input type="checkbox" onclick="chose(this)" name="d" value="NO"/>No
-              
-       </div>
-       
-        <button type="button">submit</button> 
-       <div style="width:100%;height:100px;"></div>
-	</div>
-	
+<div class="jumbotron" style ="margin-left:10%;width:80%;">
+<div class="card mb-3">
+  <h3 class="card-header">House details</h3>
+  <div class="card-body">
+    <h5 class="card-title">House image</h5>
+  </div>
+  <img src="image/<%=HouseImage %>" alt="<%=HouseImage %>"  width="800" height="250" >
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><font color="red" size="4">House Address</font></li>
+    <li class="list-group-item"><%=HouseAddress %></li>
+  </ul>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><font color="red" size="4">House Type</font></li>
+    <li class="list-group-item"><%=HouseType %></li>
+  </ul>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><font color="red" size="4">House Size</font></li>
+    <li class="list-group-item"><%=Housesize %></li>
+  </ul>
+   <ul class="list-group list-group-flush">
+    <li class="list-group-item"><font color="red" size="4">House abbreviation date</font></li>
+    <li class="list-group-item"><%=Housedate %></li>
+  </ul>
+   <ul class="list-group list-group-flush">
+    <li class="list-group-item"><font color="red" size="4">House energy consumption level</font></li>
+    <li class="list-group-item"><%=Houselel %></li>
+  </ul>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><font color="red" size="4">Parking spaces provided</font></li>
+    <li class="list-group-item"><%=Housepark %></li>
+  </ul>
+   <ul class="list-group list-group-flush">
+    <li class="list-group-item"><font color="red" size="4">Introduction to the house</font></li>
+    <li class="list-group-item"><%=HouseDec %></li>
+  </ul>
+</div>
+      <form  method="post"class="form-validate" id="rentFrom" action="${pageContext.request.contextPath}/HouseMangeServlet" >
+      <input name = "houseId"  hidden value ="<%=houseID%>" >
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Delete</button>
+      </form> 	
 </div>
 
 </body>
