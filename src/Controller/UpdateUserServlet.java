@@ -83,17 +83,18 @@ public class UpdateUserServlet extends HttpServlet {
 		
 		if(!location.equals(u.getuLocation())) {Uinfo.setuLocation(location);}
 		
-		//IUserService us = new UserService();
-		//Integer n= us.updateUser(Uinfo);
-		int n=1;
+		IUserService us = new UserService();
+		Integer n= us.updateUser(Uinfo);
 		if(n>=1) {
 			response.getWriter().write("<script   language=javascript>alert('Modify Successfully');</script>");
+			response.sendRedirect("/HRsys/LogoutServlet");
 		}
 		else 
 		{
 			response.getWriter().write("<script   language=javascript>alert('Modify Fail');'</script>");
+			response.sendRedirect("/HRsys/index.jsp");
 		}
-		response.sendRedirect("/HRsys/index.jsp");
+		
 	}
 
 }

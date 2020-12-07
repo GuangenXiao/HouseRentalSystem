@@ -39,7 +39,7 @@ public class UserDaoImp implements UserDao {
 	@Override
 	public Integer updateUser(User u) throws Exception {
 		// TODO Auto-generated method stub
-		String sql="update lms_user set ";
+		String sql="update HRUser set ";
 		int i=0;
 		if(u.getuName()!=null)
 		{
@@ -63,7 +63,7 @@ public class UserDaoImp implements UserDao {
 		{
 			if(i!=0)sql+=",";
 			i++;
-			sql+="uPhoneNum = '"+u.getuPhoneNumber()+"'";
+			sql+="uPhoneNumber = '"+u.getuPhoneNumber()+"'";
 		}
 		if(u.getuMoney()!=null)
 		{
@@ -75,13 +75,31 @@ public class UserDaoImp implements UserDao {
 		{
 			if(i!=0)sql+=",";
 			i++;
-			sql+="uPower = '"+u.getuType()+"'";
+			sql+="uType = '"+u.getuType()+"'";
 		}
 		if(u.getuVerification()!=null)
 		{
 			if(i!=0)sql+=",";
 			i++;
-			sql+="uState = "+u.getuVerification();
+			sql+="uVerification = "+u.getuVerification();
+		}
+		if(u.getuStatus()!=null)
+		{
+			if(i!=0)sql+=",";
+			i++;
+			sql+="uState = "+u.getuStatus();
+		}
+		if(u.getuDescription()!=null)
+		{
+			if(i!=0)sql+=",";
+			i++;
+			sql+="uDescription = "+u.getuDescription();
+		}
+		if(u.getuLocation()!=null)
+		{
+			if(i!=0)sql+=",";
+			i++;
+			sql+="uLocation= "+u.getuLocation();
 		}
 		sql+=" where uId=?;";
 		System.out.print(sql);
