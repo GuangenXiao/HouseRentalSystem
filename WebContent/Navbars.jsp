@@ -33,7 +33,7 @@ User u =(User)httpSession.getAttribute("user");
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">New House</a>
+          <a class="nav-link" href="${pageContext.request.contextPath}/house.jsp">New House</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="${pageContext.request.contextPath}/view.jsp">Office</a>
