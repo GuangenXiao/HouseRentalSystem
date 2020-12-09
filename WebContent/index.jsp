@@ -35,7 +35,7 @@ if(request.getAttribute("msg")!=null)
     <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath }/login.jsp" role="button">Learn more</a>
   	</c:when>
     <c:otherwise>
-  	    <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath }/searchlist.jsp" role="button">Post house</a>
+  	    <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath }/searchlist.jsp" role="button">Search house</a>
   	</c:otherwise>
   	   </c:choose>
   	</p>
