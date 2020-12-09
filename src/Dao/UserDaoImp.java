@@ -18,7 +18,7 @@ public class UserDaoImp implements UserDao {
 	public User searchUserByID(User u) throws Exception {
 		// TODO Auto-generated method stub
 		//Connection conn = DbSoureUtil.ds.getConnection();
-		QueryRunner ruuner = new QueryRunner(DbSoureUtil.ds);
+		QueryRunner ruuner = new QueryRunner(DbSoureUtil.getDataSource());
 		String sql = "SELECT *  FROM HRUser where uId=?";
         ArrayList<User> list = (ArrayList<User>)ruuner.query(sql, new BeanListHandler(User.class), new Object[]{u.getuId()}); 
 		return list.size()>0 ?(User) list.get(0):null;
@@ -30,7 +30,7 @@ public class UserDaoImp implements UserDao {
 	public Boolean insertUser(User u) throws Exception {
 		// TODO Auto-generated method stub
 		String sql ="insert into hruser values(null,?,?,?,?,?,?,?,?,?,?,default,0,true,?);";
-		QueryRunner runner = new QueryRunner(DbSoureUtil.ds);
+		QueryRunner runner = new QueryRunner(DbSoureUtil.getDataSource());
 		Integer re = runner.update(sql,new  Object [] {u.getuName(),u.getuPassword(),u.getuIcon(),u.getuPhoneNumber(),u.getuEmail(),u.getuBirthday()
 				,u.getuAge(),u.getuGender(),u.getuDescription(),u.getuLocation(),u.getuType()});
 		return re>=0?true:false;
@@ -103,7 +103,7 @@ public class UserDaoImp implements UserDao {
 		}
 		sql+=" where uId=?;";
 		System.out.print(sql);
-		QueryRunner runner = new QueryRunner(DbSoureUtil.ds);
+		QueryRunner runner = new QueryRunner(DbSoureUtil.getDataSource());
 		Integer re = runner.update(sql,new  Object [] {u.getuId()});
 		return re;
 	}
@@ -112,7 +112,7 @@ public class UserDaoImp implements UserDao {
 	public Integer deleteUser(User u) throws Exception {
 		// TODO Auto-generated method stub
 		String sql="delete from lms_user where uId=?;";
-		QueryRunner runner = new QueryRunner(DbSoureUtil.ds);
+		QueryRunner runner = new QueryRunner(DbSoureUtil.getDataSource());
 		Integer re = runner.update(sql,new  Object [] {u.getuId()});
 		return re;
 	}
@@ -120,7 +120,7 @@ public class UserDaoImp implements UserDao {
 	@Override
 	public ArrayList<User> findUsers(String info,String type) throws Exception {
 		// TODO Auto-generated method stub
-		QueryRunner ruuner = new QueryRunner(DbSoureUtil.ds);
+		QueryRunner ruuner = new QueryRunner(DbSoureUtil.getDataSource());
 		String sql = "SELECT *  FROM hrdb.hruser";
 		if(info!=null&&info.length()>0) {
 		 sql+=" where (uId like '%"+info
