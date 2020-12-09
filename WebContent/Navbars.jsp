@@ -84,8 +84,9 @@ if(u!=null)
        <c:if test="<%=u!=null %>">        
          <p   style="margin-right:50px;color:black;font-size:25px;">Welcome,<%=u.getuName() %></p>
         </c:if>
-      <form style="margin-right: 20px;" class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <form action="${pageContext.request.contextPath }/SearchHouseServlet" method="post" style="margin-right: 20px;" class="form-inline my-2 my-lg-0">
+        <input name="HouseTypeSelect" hidden class="form-control mr-sm-2" type="text" placeholder="Search" value="0---general">
+        <input name="HouseInfo" class="form-control mr-sm-2" type="text" placeholder="Search">
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
       </form> 
     </div>

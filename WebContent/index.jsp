@@ -32,10 +32,10 @@ if(request.getAttribute("msg")!=null)
   <p class="lead">
     <c:choose>
     <c:when test="<%=u==null %>">
-    <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath }/index.jsp" role="button">Learn more</a>
+    <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath }/login.jsp" role="button">Learn more</a>
   	</c:when>
     <c:otherwise>
-  	    <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath }/house.jsp" role="button">Post house</a>
+  	    <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath }/searchlist.jsp" role="button">Post house</a>
   	</c:otherwise>
   	   </c:choose>
   	</p>
