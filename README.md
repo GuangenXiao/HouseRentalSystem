@@ -34,7 +34,7 @@ Import the project in eclipse.<br>
 File --> import --> type "git" --> click "projects from git"<br>
 
 --> copy the URL from the websit<br>
-https://github.com/GuangenXiao/HouseRentalSystem.git
+https://github.com/GuangenXiao/HouseRentalSystem.git <br>
 -->select "clone the URL"<br>
 -->paste the URL you had copy<br>
 -->click Next <br>
