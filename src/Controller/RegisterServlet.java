@@ -16,6 +16,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -180,11 +181,16 @@ public class RegisterServlet extends HttpServlet {
 				return;
 			}
 			UserService service =new UserService();
-			Boolean result=service.insertUser(user);
-			if(result==true) {
+			User result=service.registerNewUser(user);
+			if(result!=null) {
 				msg.append("You have successfully created an account");
 				request.setAttribute("msg", msg.toString());
-				doGet(request, response);
+				Cookie cookie = new Cookie("autologin",result.getuId()+"-"+result.getuPassword());
+			    
+				cookie.setMaxAge(24*60*60);
+				cookie.setPath("/HRsys");
+				response.addCookie(cookie);
+				response.sendRedirect("/HRsys/login.jsp?newUser="+true);
 				return;
 			}
 			else

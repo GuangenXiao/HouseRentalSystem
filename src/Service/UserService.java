@@ -11,6 +11,7 @@ public class UserService  implements IUserService {
 	{
 		
 	}
+	 @Override
 	 public User UserLogin(User u)
 	 {
 		 UserDao ud =  new UserDaoImp();
@@ -68,5 +69,29 @@ public class UserService  implements IUserService {
 			e.printStackTrace();
 		}
 		return r;
+	}
+	public User registerNewUser(User u)
+	{
+		Boolean b= insertUser(u);
+		if(b==false )return null;
+		else 
+		{
+			User result =fineUserByName(u);
+			System.out.println(result.getuId()+result.getuName());
+			return  result;
+		}
+	}
+	@Override
+	public User fineUserByName(User u) {
+		// TODO Auto-generated method stub
+		 UserDao ud =  new UserDaoImp();
+		 User uResult=null;
+		 try {
+			uResult= ud.searchUserByName(u);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return uResult;
 	}
 }

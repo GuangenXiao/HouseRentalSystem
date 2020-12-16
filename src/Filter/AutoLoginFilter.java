@@ -2,6 +2,7 @@ package Filter;
 
 import java.io.IOException;
 
+import javax.servlet.DispatcherType;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -22,7 +23,7 @@ import Service.UserService;
 /**
  * Servlet Filter implementation class AutoLoginFilter
  */
-@WebFilter("/login.jsp")
+@WebFilter(value="/login.jsp",dispatcherTypes={DispatcherType.REQUEST, DispatcherType.FORWARD})
 public class AutoLoginFilter implements Filter {
 
     /**

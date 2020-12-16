@@ -31,6 +31,12 @@
   {
 	password=request.getAttribute("password").toString();
   }
+  if(request.getParameter("newUser")!=null)
+  {
+	  msg="You have successfully created an account";
+	  String s="<script   language=javascript>alert('Resgister Successfully, Your Id is "+id+" ');</script>";
+	  response.getWriter().write(s);
+  }
   %>
 
     <div class="page login-page">

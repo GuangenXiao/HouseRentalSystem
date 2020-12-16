@@ -10,4 +10,5 @@ public interface UserDao {
 	public abstract Integer updateUser(User u)  throws Exception;
 	public abstract Integer deleteUser(User u)  throws Exception;
 	public abstract ArrayList<User> findUsers(String info,String type) throws Exception;
+	public abstract User searchUserByName(User u)  throws Exception;
 }

@@ -146,4 +146,13 @@ public class UserDaoImp implements UserDao {
         ArrayList<User> list = (ArrayList<User>)ruuner.query(sql, new BeanListHandler(User.class)); 
 		return list;
 	}
+	@Override
+	public User searchUserByName(User u) throws Exception {
+		// TODO Auto-generated method stub
+				//Connection conn = DbSoureUtil.ds.getConnection();
+				QueryRunner ruuner = new QueryRunner(DbSoureUtil.getDataSource());
+				String sql = "SELECT *  FROM HRUser where uName=?";
+		        ArrayList<User> list = (ArrayList<User>)ruuner.query(sql, new BeanListHandler(User.class), new Object[]{u.getuName()}); 
+				return list.size()>0 ?(User) list.get(0):null;
+	}
 }
