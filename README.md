@@ -8,6 +8,21 @@ Our GroupMember
 19108842 Jiawen Leng<br>
 19107692 Zijian Li<br>
 
+Before start you need to instal mysql Database <br>
+https://cdn.mysql.com//Downloads/MySQLInstaller/mysql-installer-community-8.0.22.0.msi<br>
+
+and apache tomcat server v9.0<br>
+
+https://mirror.bit.edu.cn/apache/tomcat/tomcat-9/v9.0.41/bin/apache-tomcat-9.0.41.zip<br>
+
+If the apache tomcat server link doesn't work:<br>
+https://mirror.bit.edu.cn/apache/tomcat/tomcat-9/<br>
+
+And you need to set up apache tomcat server on your eclipse:<br>
+
+https://beginnersbook.com/2017/06/how-to-configure-apache-tomcat-server-in-eclipse-ide/<br>
+
+Now we can start sith project <br>
 
 First you need to run the sql script <br>
 
