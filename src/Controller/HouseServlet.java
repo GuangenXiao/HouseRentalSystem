@@ -28,6 +28,8 @@ import Entity.House;
 import Entity.User;
 import Service.HouseService;
 import Service.UserService;
+import Util.Converter;
+import Util.ConverterFactory;
 
 /**
  * Servlet implementation class HouseServlet
@@ -92,7 +94,9 @@ public class HouseServlet extends HttpServlet {
 						house.sethSize(Integer.parseInt(value));
 					}else if(filename.equals("HouseBirthday")) {
 						try {
-							Date houseBirth=Util.Timeconverter.convertStringToDate(value);
+							ConverterFactory  cf = new ConverterFactory();
+							Converter c = cf.getConverter("DATE");
+							Date houseBirth=c.convertString(value);
 							house.sethDate(houseBirth);
 						} catch (ParseException e) {
 							// TODO Auto-generated catch block

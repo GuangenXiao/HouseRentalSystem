@@ -14,6 +14,8 @@ import Entity.Rental;
 import Entity.User;
 import Service.HouseService;
 import Service.RentService;
+import Util.Converter;
+import Util.ConverterFactory;
 
 /**
  * Servlet implementation class RentServlet
@@ -51,13 +53,18 @@ public class RentServlet extends HttpServlet {
 	    Date StartDate=null;
 	    Date EndDate=null;
 		try {
-			StartDate = Util.Timeconverter.convertStringToDate(request.getParameter("StartDate"));
+			
+			ConverterFactory  cf = new ConverterFactory();
+			Converter c = cf.getConverter("DATE");
+			StartDate = c.convertString(request.getParameter("StartDate"));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
-			EndDate = Util.Timeconverter.convertStringToDate(request.getParameter("EndDate"));
+			ConverterFactory  cf = new ConverterFactory();
+			Converter c = cf.getConverter("DATE");
+			EndDate = c.convertString(request.getParameter("EndDate"));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

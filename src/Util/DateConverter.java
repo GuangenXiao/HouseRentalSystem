@@ -1,15 +1,22 @@
 package Util;
-import java.util.*;
-import java.text.*;
-import javax.swing.JOptionPane;
-import java.io.*;
-public class Timeconverter implements Converter {
-	
 
-	public Date convertString(String aDate) throws ParseException
-	{
-		DateFormat aFormater = new SimpleDateFormat("dd/MM/yyyy/hh/mm"); 
-		Date dateValue = (Date)aFormater.parse(aDate);
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+public class DateConverter implements Converter {
+
+	public DateConverter() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public Date convertString(String input) throws ParseException {
+		// TODO Auto-generated method stub
+		DateFormat aFormater = new SimpleDateFormat("yyyy-MM-dd"); 
+		Date dateValue = (Date)aFormater.parse(input);
 		return dateValue;
 	}
 	public int getAge(Date birthDay) throws Exception {
@@ -34,4 +41,5 @@ public class Timeconverter implements Converter {
        } } 
             return age; 
 }  
+
 }

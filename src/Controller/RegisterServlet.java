@@ -25,6 +25,8 @@ import javax.servlet.http.Part;
 import Entity.User;
 import Entity.User.Builder;
 import Service.UserService;
+import Util.Converter;
+import Util.ConverterFactory;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -104,7 +106,9 @@ public class RegisterServlet extends HttpServlet {
 						user.setuType(value);
 					}else if(filename.equals("userBirthday")) {
 						try {
-							Date userBirth=Util.Timeconverter.convertStringToDate(value);
+							ConverterFactory  cf = new ConverterFactory();
+							Converter c = cf.getConverter("DATE");
+							Date userBirth=c.convertString(value);
 							user.setuBirthday(userBirth);
 						} catch (ParseException e) {
 							// TODO Auto-generated catch block
@@ -143,7 +147,9 @@ public class RegisterServlet extends HttpServlet {
 			}
 			Integer age =0;
 			 try {
-		            age = Util.Timeconverter.getAge(user.getuBirthday()); 
+					ConverterFactory  cf = new ConverterFactory();
+					Converter c = cf.getConverter("DATE");
+		            age = c.getAge(user.getuBirthday()); 
 		            if(age<18) {
 		            	msg.append("your age is under 18!");
 		            	request.setAttribute("msg", msg.toString());
