@@ -1,5 +1,5 @@
-# HouseRentalSystem
-a simple project for our group
+# HouseRentalSystem 
+a simple project for our group 10 (WNG)
 
 Our GroupMember 
 
